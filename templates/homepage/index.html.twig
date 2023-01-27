@@ -11,6 +11,11 @@
         {% if firstName is not defined %}
             <h1>Hello {{ firstName }}!</h1>
         {% endif %}
+
+        {{ dump(figures) }}
+        {% for figure in figures %}
+            {{ figure.name }} <br>
+        {% endfor %}
     </div>
 
 {% endblock %}

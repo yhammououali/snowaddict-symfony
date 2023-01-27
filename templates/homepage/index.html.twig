@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} Homepage
+{% endblock %}
+
+{% block body %}
+
+    {# Mon commentaire #}
+    <div class="example-wrapper">
+        {% if firstName is not defined %}
+            <h1>Hello {{ firstName }}!</h1>
+        {% endif %}
+    </div>
+
+{% endblock %}

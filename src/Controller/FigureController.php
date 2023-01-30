@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Figure;
 use App\Form\FigureType;
 use App\FormHandler\FigureFormHandler;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,5 +28,11 @@ class FigureController extends AbstractController
         return $this->render('figure/create.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+    #[Route('/figure/{figureId}/view', name: 'app_figure_view', methods: ['GET'])]
+    #[Entity('figure', options: ['id' => 'figureId'])]
+    public function view(Request $request, Figure $figure)
+    {
+        dd($figure);
     }
 }
